@@ -1,0 +1,14 @@
+
+warning - The value of the field '_idPhotoBase64' isn't used - lib\screens\login_screen.dart:29:11 - unused_field
+   info - The private field _isUploading could be 'final' - lib\screens\login_screen.dart:30:8 - prefer_final_fields
+   info - Don't use 'BuildContext's across async gaps - lib\screens\login_screen.dart:190:26 - use_build_context_synchronously
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\login_screen.dart:222:43 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\widgets\task_feed.dart:207:80 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\widgets\task_modal.dart:115:31 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\widgets\task_modal.dart:188:25 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\widgets\task_modal.dart:465:21 - deprecated_member_use
+warning - The '!' will have no effect because the receiver can't be null - lib\screens\widgets\team_view.dart:54:73 - unnecessary_non_null_assertion
+warning - The '!' will have no effect because the receiver can't be null - lib\screens\widgets\team_view.dart:67:100 - unnecessary_non_null_assertion
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\screens\widgets\user_header.dart:144:46 - deprecated_member_use
+   info - Use 'const' with the constructor to improve performance - lib\screens\widgets\user_header.dart:163:46 - prefer_const_constructors
+

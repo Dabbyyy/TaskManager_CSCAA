@@ -1,0 +1,14 @@
+﻿Analyzing cscaa_taskmanager...                                  
+
+   info - The private field _isUploading could be 'final' - lib\screens\login_screen.dart:27:8 - prefer_final_fields
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\login_screen.dart:236:23 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\login_screen.dart:249:23 - deprecated_member_use
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\screens\navigation_screen.dart:339:24 - use_build_context_synchronously
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\widgets\task_modal.dart:102:25 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\widgets\task_modal.dart:120:25 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\widgets\task_modal.dart:379:30 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\screens\widgets\task_modal.dart:432:23 - deprecated_member_use
+   info - Use 'const' with the constructor to improve performance - lib\screens\widgets\team_view.dart:71:25 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\widgets\team_view.dart:74:34 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\screens\widgets\user_header.dart:163:46 - prefer_const_constructors
+

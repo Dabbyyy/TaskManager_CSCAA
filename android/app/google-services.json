@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "259110465173",
+    "project_id": "cscaataskmanager",
+    "storage_bucket": "cscaataskmanager.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259110465173:android:1b0ae1fa0105c60ce0b59c",
+        "android_client_info": {
+          "package_name": "com.example.cscaa_taskmanager"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBzbdE3kX7Gko-XM_W_-Fjtr3Ke2yGQXU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
