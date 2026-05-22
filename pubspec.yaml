@@ -46,4 +46,4 @@ flutter:
   # and ensure the file exists in an 'assets' folder
   assets:
     - assets/logo.png
-    - assets/service_account.json
+   # - assets/service_account.json
