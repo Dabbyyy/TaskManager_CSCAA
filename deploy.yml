@@ -1,0 +1,53 @@
+name: Deploy Flutter Web to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Change to master if your default branch is named master
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Java environment (Required for Flutter Android/Web builders)
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      # Step 3: Install Flutter SDK
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      # Step 4: Get Flutter packages
+      - name: Install dependencies
+        run: flutter pub get
+
+      # Step 5: Build Flutter Web app
+      # We use '--base-href' so Flutter knows its specific repository URL folder name
+      - name: Build Web Application
+        run: flutter build web --base-href "/${{ github.event.repository.name }}/" --release
+
+      # Step 6: Upload the web build to GitHub Pages
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+      # Step 7: Deploy to the live server
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
