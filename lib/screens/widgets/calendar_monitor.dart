@@ -47,14 +47,17 @@ class _CalendarMonitorState extends State<CalendarMonitor> {
             final allTasks = snap.data?.docs ?? [];
 
             List<QueryDocumentSnapshot> getEvents(DateTime day) {
-              return allTasks.where((doc) {
-                final d = doc.data() as Map<String, dynamic>;
-                final deadline = (d['deadline'] as Timestamp?)?.toDate();
-                return deadline != null &&
-                    isSameDay(deadline, day) &&
-                    (widget.isAdmin ||
-                        (d['assignedTo'] as List).contains(userEmail));
-              }).map((e) => e as QueryDocumentSnapshot).toList();
+              return allTasks
+                  .where((doc) {
+                    final d = doc.data() as Map<String, dynamic>;
+                    final deadline = (d['deadline'] as Timestamp?)?.toDate();
+                    return deadline != null &&
+                        isSameDay(deadline, day) &&
+                        (widget.isAdmin ||
+                            (d['assignedTo'] as List).contains(userEmail));
+                  })
+                  .map((e) => e)
+                  .toList();
             }
 
             return Column(
@@ -71,15 +74,15 @@ class _CalendarMonitorState extends State<CalendarMonitor> {
                       _focusedDay = foc;
                     }),
                     rowHeight: 90, // Increased row height to fit task labels
-                    headerStyle: HeaderStyle(
+                    headerStyle: const HeaderStyle(
                       formatButtonVisible: false,
                       titleCentered: false,
-                      titleTextStyle: const TextStyle(
-                          fontSize: 20, fontWeight: FontWeight.bold),
-                      leftChevronIcon: const Icon(Icons.chevron_left, size: 24),
-                      rightChevronIcon: const Icon(Icons.chevron_right, size: 24),
-                      headerPadding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 16),
+                      titleTextStyle:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      leftChevronIcon: Icon(Icons.chevron_left, size: 24),
+                      rightChevronIcon: Icon(Icons.chevron_right, size: 24),
+                      headerPadding:
+                          EdgeInsets.symmetric(vertical: 10, horizontal: 16),
                     ),
                     daysOfWeekStyle: const DaysOfWeekStyle(
                       weekdayStyle: TextStyle(
@@ -94,7 +97,8 @@ class _CalendarMonitorState extends State<CalendarMonitor> {
                         borderRadius: BorderRadius.all(Radius.circular(8)),
                       ),
                       selectedDecoration: BoxDecoration(
-                        color: Color(0xFFF3F4F6), // Light highlight for selected
+                        color:
+                            Color(0xFFF3F4F6), // Light highlight for selected
                         shape: BoxShape.rectangle,
                         borderRadius: BorderRadius.all(Radius.circular(8)),
                       ),
@@ -132,7 +136,8 @@ class _CalendarMonitorState extends State<CalendarMonitor> {
                     padding: const EdgeInsets.symmetric(horizontal: 16),
                     children: getEvents(_selectedDay ?? _focusedDay).map((t) {
                       final data = t.data() as Map<String, dynamic>;
-                      final emails = List<String>.from(data['assignedTo'] ?? []);
+                      final emails =
+                          List<String>.from(data['assignedTo'] ?? []);
                       final names =
                           emails.map((e) => userNames[e] ?? e).join(", ");
                       final priority = data['priority'] ?? "Medium";
@@ -157,7 +162,8 @@ class _CalendarMonitorState extends State<CalendarMonitor> {
                           title: Text(data['title'],
                               style:
                                   const TextStyle(fontWeight: FontWeight.bold)),
-                          subtitle: Text("Assigned: $names\nPriority: $priority",
+                          subtitle: Text(
+                              "Assigned: $names\nPriority: $priority",
                               style: const TextStyle(fontSize: 12)),
                           isThreeLine: true,
                         ),
@@ -193,8 +199,11 @@ class _CalendarMonitorState extends State<CalendarMonitor> {
               '${day.day}',
               style: TextStyle(
                 fontSize: 12,
-                fontWeight: isToday || isSelected ? FontWeight.bold : FontWeight.normal,
-                color: isOutside ? Colors.grey : (isToday ? Colors.red : Colors.black87),
+                fontWeight:
+                    isToday || isSelected ? FontWeight.bold : FontWeight.normal,
+                color: isOutside
+                    ? Colors.grey
+                    : (isToday ? Colors.red : Colors.black87),
               ),
             ),
           ),
@@ -208,8 +217,10 @@ class _CalendarMonitorState extends State<CalendarMonitor> {
                   final priority = data['priority'] ?? "Medium";
                   final color = getPriorityColor(priority);
                   return Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 2, vertical: 1),
-                    padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
+                    margin:
+                        const EdgeInsets.symmetric(horizontal: 2, vertical: 1),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
                     decoration: BoxDecoration(
                       color: color.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(4),
